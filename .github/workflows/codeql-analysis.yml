@@ -2,7 +2,7 @@ name: "CodeQL"
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main, master, dev, develop ]
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ main ]
@@ -36,8 +36,8 @@ jobs:
       uses: github/codeql-action/init@v1
       with:
         languages: ${{ matrix.language }}
-    - name: Make Gradlew Executable
-      run: cd android && chmod +x ./gradlew
+    # - name: Make Gradlew Executable
+    #   run: cd android && chmod +x ./gradlew
     - name: Autobuild
       uses: github/codeql-action/autobuild@v1
     - name: Perform CodeQL Analysis
